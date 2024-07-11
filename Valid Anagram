@@ -1,1 +1,21 @@
-
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int arr[26] = {0};
+        for (char c : s) {
+            arr[c - 97]++;
+        }
+        for (char ch : t) {
+            arr[ch - 97]--;
+            if(arr[ch-97]==-1){
+                return false;
+            }
+        }
+        for (int value : arr) {
+            if (value != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
